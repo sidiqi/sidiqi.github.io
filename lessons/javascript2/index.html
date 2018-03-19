@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<button id="button1">кнопка 1</button>
+	<button id="button2">кнопка 2</button>
+	<input id="myInput"/>
+	<script type="text/javascript">
+	var button1 = document.getElementById('button1');
+
+	button1.onclick = function () {
+		addTextToBody('Нажал')
+	}
+
+	var button2 = document.getElementById('button2');
+	button2.addEventListener('click', function(){
+
+			var text = 'кнопка2'
+			addTextToBody(text);
+
+	})
+
+	var input = document.getElementById('myInput');
+	input.addEventListener('input', function(){
+		addTextToBody(this.value);
+		addTextToBody(circle(this.value));
+
+
+	})
+
+	input.addEventListener('keyup', function(e){
+		if(e.keyCode == 13)
+			addTextToBody(circle(this.value));
+	})
+
+
+	//Объявление функции
+	function addTextToBody(text){
+		var div = document.createElement('div');
+		div.innerHTML = text;
+		var body = document. getElementsByTagName('body');
+		body[0].appendChild(div);	
+	}
+
+	function circle(r){
+		if (!isNaN(r)) return 3.14*r*r;
+		return 'Введите число';
+	}
+
+
+	</script>
+
+</body>
+</html>
