@@ -6,7 +6,9 @@
 </head>
 <body>
 	
-
+<?php $a= 5 ;
+ echo $a;
+ ?>
 
 	<script type="text/javascript">
 		
